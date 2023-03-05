@@ -1,12 +1,17 @@
-.App {
-  text-align: center;
-  font-family: url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap")
+*{
+  background-color: black;
+    font-family: url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap");
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+.App {
+  background-color: black;
+  text-align: center;
+
+  
 }
+
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
