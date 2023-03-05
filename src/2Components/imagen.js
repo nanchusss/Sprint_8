@@ -51,9 +51,18 @@ const ShipImage = ({ shipName, loading, error }) => {
 
   return (
     <DivImagen>
-      {shipImage ? <img src={shipImage} alt={idNave} /> : <p>Loading...</p>}
+      {shipImage ? (
+        <img style={styles.img} src={shipImage} alt={idNave} />
+      ) : (
+        <p>Loading...</p>
+      )}
     </DivImagen>
   );
+};
+const styles = {
+  img: {
+    backgroundColor: "black",
+  },
 };
 const DivImagen = styled.div`
   margin-top: 30px;

@@ -10,6 +10,7 @@ import logo from "./images/1.png";
 import logo2 from "./images/klipartz.com (43).png";
 import logo3 from "./images/klipartz.com (48).png";
 import casco from "./images/klipartz.com (49).png";
+import Bienvenida from "./2Components/bienvenida";
 
 function App() {
   const [mostrarNave, setMostrarNave] = useState([]);
@@ -95,29 +96,31 @@ function App() {
   }
   if (estado === false) {
     return (
-      <ContenedorMensajeBienvenida>
-        <MensajeBienvenida estado={estado}>Bienvenido</MensajeBienvenida>
-        <Imagenes>
-          <img src={casco} alt={"hola"} />
-        </Imagenes>
+      <Bienvenida handleEstado={handleEstado}></Bienvenida>
+      // <ContenedorMensajeBienvenida>
+      //   {/* <MensajeBienvenida estado={estado}>Bienvenido</MensajeBienvenida> */}
+      //   <Imagenes>
+      //     <img src={casco} alt={"hola"} />
+      //   </Imagenes>
 
-        <Btn onClick={handleEstado}>Empieza</Btn>
-      </ContenedorMensajeBienvenida>
+      //   <Btn onClick={handleEstado}>START</Btn>
+      // </ContenedorMensajeBienvenida>
     );
   }
   const renderizado = State ? (
     <Contenedor>
       <img style={styles.img} src={logo2} alt="" />
       <Menu>
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/blog">Detalle Naves</NavLink>
+        <NavLink to="/Home">HOME</NavLink>
+        <NavLink to="/starships">STARSHIPS</NavLink>
         {/* <NavLink to="/tienda">Tienda</NavLink> */}
       </Menu>
       <main>
         <Routes>
+          <Route path="/Home" element={<Bienvenida />}></Route>
           <Route path="*" element={<Error404 />} />
           <Route
-            path="/"
+            path="/starships"
             element={
               <NavesListado
                 loading={loading}
@@ -132,18 +135,7 @@ function App() {
             }
           />
           {/* <Route path="/blog" element={<Blog />} /> */}
-          <Route
-            path="/blog"
-            // Acá esto no funcionaba porque dentro de element va el componente tienda
-            element={
-              <Naves
-                mostrarNave={mostrarNave}
-
-                // productos={productos} ACA DEBERIA LLAMARSE LA API.
-                // agregarProductoAlCarrito={agregarProductoAlCarrito}
-              />
-            }
-          />
+          <Route path="/nave" element={<Naves mostrarNave={mostrarNave} />} />
         </Routes>
       </main>
       {/* <aside>
@@ -153,29 +145,26 @@ function App() {
   ) : (
     <Contenedor>
       <Menu>
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/blog">Detalle Naves</NavLink>
+        <NavLink to="/Home">HOME</NavLink>
+        <NavLink to="/starships">STARSHIPS</NavLink>
         {/* <NavLink to="/tienda">Tienda</NavLink> */}
       </Menu>
 
+      <Name>{shipName}</Name>
       <ShipImage shipName={shipName} loading={loading} error={error} />
       <Naves mostrarNave={mostrarNave}></Naves>
     </Contenedor>
   );
   return <div className="App">{renderizado}</div>;
 }
-const ContenedorMensajeBienvenida = styled.body`
-  background-color: black;
-  text-transform: uppercase;
-`;
 
-const Imagenes = styled.div`
-  width: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-left: auto;
-  margin-right: auto;
+const Name = styled.div`
+  color: white;
+  text-transform: uppercase;
+  font-size: 32px;
+  margin-top: 20px;
+  padding: 15px;
+  font-family: src("https://fonts.googleapis.com");
 `;
 const styles = {
   img: {
@@ -203,41 +192,11 @@ const Contenedor = styled.div`
   margin-left: auto;
   margin-right: auto;
 `;
-const Btn = styled.button`
-  width: 20%;
-  line-height: 10px;
-  display: grid;
-  color: white;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 5px;
-  margin-top: 10px;
-  margin-bottom: 30px;
-  padding: 20px;
-  text-align: center;
-  background: #1d1c1c;
-  text-transform: uppercase;
-  grid-column: span 1;
-  :hover {
-    background: #414242;
-    text-decoration: none;
-  }
-`;
-const MensajeBienvenida = styled.div`
-  width: 100%;
-
-  font-size: 42px;
-  margin-top: 50px;
-  margin-bottom: 30px;
-  font-weight: bold;
-  text-align: center;
-  color: white;
-  grid-column: span 1;
-`;
 
 const Menu = styled.nav`
   max-width: 1200px;
   width: 100%;
+  text-decoration: none;
   margin-top: 30px;
   border: 3px solid #61606033;
   text-align: center;

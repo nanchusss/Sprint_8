@@ -42,14 +42,14 @@ function NavesListado({
           disabled={currentPage === 1}
           onClick={handlePrevPage}
         >
-          Página Anterior
+          BACK
         </button>{" "}
         <button
           style={styles.btn}
           disabled={currentPage === totalPages}
           onClick={handleNextPage}
         >
-          Página Siguiente
+          NEXT
         </button>
       </Butons>
     </ContenedorTotal>
@@ -57,8 +57,6 @@ function NavesListado({
 }
 
 const ContenedorTotal = styled.div`
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   max-width: 1000px;
   padding: 10px;
   width: 90%;
@@ -105,17 +103,18 @@ const Contenedor = styled.nav`
 `;
 
 const Butons = styled.nav`
-  margin-top: 30px;
-
+  padding-left: 30px;
+  padding-right: 30px;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 `;
 
 const styles = {
   btn: {
     padding: "20px",
+    minWidth: "150px",
     backgroundColor: "white",
     borderRadius: "5px",
     border: "1px solid #cdc8c8",
