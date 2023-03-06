@@ -61,7 +61,9 @@
   margin-left: 0px !important;
   left: 5% !important;
 }
-
+.form-control{
+min-width: 500px !important;
+}
 
 .form-control:focus {
         border-color: yellow !important;
