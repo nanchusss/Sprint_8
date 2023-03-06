@@ -60,7 +60,7 @@ const ContenedorTotal = styled.div`
   padding: 10px;
   width: 100%;
   display: grid;
-  background-color: black;
+
   gap: 10px;
   margin-left: auto;
   margin-right: auto;
@@ -78,7 +78,7 @@ const ContenedordeNombreyModelo = styled.button`
   background-color: #1c1c1c;
   border: none;
   :hover {
-    background: #232323;
+    background: #3b3b3b;
     text-decoration: none;
   }
 `;
@@ -114,11 +114,11 @@ const styles = {
     margin: "0",
     marginTop: "10px",
     weight: "bold",
-    backgroundColor: "#1c1c1c",
+    background: "none",
     textTransform: "uppercase",
   },
   detalle: {
-    backgroundColor: "#1c1c1c",
+    background: "none",
   },
   datos: {
     fontSize: "13px",

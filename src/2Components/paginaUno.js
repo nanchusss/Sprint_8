@@ -13,9 +13,8 @@ const Carrusel = () => {
       <Carousel.Item>
         <img className="d-block w-100" src={imagen1} alt="Grogu te amo" />
         <Carousel.Caption>
-          <h3>
-            <img className="groguLogo" src={grogulogo} alt="" />
-          </h3>
+          <img className="d-block w-100" src={grogulogo} alt="" />
+
           <p classname="parrafosSubtitulo">
             The Mandalorian begins an important journey.
           </p>

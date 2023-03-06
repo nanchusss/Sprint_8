@@ -7,41 +7,40 @@ const Naves = ({ mostrarNave }) => {
   // console.log(mostrarNave[0]);
   return (
     <>
-      <div>
-        {mostrarNave.map((a, index) => {
-          return (
-            <>
-              <Contenedor1>
-                <p>{a.modelo}</p>
-                <p>{a.starship}</p>
-                <p>{a.manufacturer}</p>
-                <p>{a.cost}</p>
-              </Contenedor1>
-              <Contenedor2>
-                <p>{a.crew}</p>
-                <p>{a.passengers}</p>
-                <p>{a.cargo}</p>
-                <p>{a.consumables}</p>
-                <p>{a.length}</p>
-                <p>{a.maxAtmosphericSpeed}</p>
-                <p>{a.pilots}</p>
-              </Contenedor2>
-            </>
-          );
-        })}
-      </div>
+      {mostrarNave.map((a, index) => {
+        return (
+          <>
+            <Contenedor1>
+              <p>{a.modelo}</p>
+              <p>{a.starship}</p>
+              <p>{a.manufacturer}</p>
+              <p>{a.cost}</p>
+            </Contenedor1>
+            <Contenedor2>
+              <p>{a.crew}</p>
+              <p>{a.passengers}</p>
+              <p>{a.cargo}</p>
+              <p>{a.consumables}</p>
+              <p>{a.length}</p>
+              <p>{a.maxAtmosphericSpeed}</p>
+              <p>{a.pilots}</p>
+            </Contenedor2>
+          </>
+        );
+      })}
     </>
   );
 };
+
 const Contenedor1 = styled.div`
   max-width: 1000px;
   padding: 20px;
+  font-size: 16px;
   width: 90%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 0px;
   color: white;
   margin-left: auto;
   margin-right: auto;
@@ -56,6 +55,7 @@ const Contenedor2 = styled.div`
   margin-left: auto;
   color: white;
   margin-right: auto;
+  font-size: 16px;
   text-transform: uppercase;
 `;
 export default Naves;

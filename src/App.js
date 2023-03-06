@@ -135,7 +135,7 @@ function App() {
 
       <main>
         <Routes>
-          <Route path="/Home" element={<Bienvenida />}></Route>
+          <Route path="/Home"></Route>
           <Route path="*" element={<Error404 />} />
           <Route
             path="/starships"
@@ -177,7 +177,7 @@ function App() {
 const Name = styled.div`
   color: white;
   text-transform: uppercase;
-  font-size: 32px;
+  font-size: 24px;
   margin-top: 20px;
   padding: 15px;
   font-family: src("https://fonts.googleapis.com");
@@ -208,17 +208,12 @@ const styles = {
   },
 };
 const Contenedor = styled.div`
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-
   padding: 20px;
   width: 90%;
   display: flex;
-
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 0px;
   margin-left: auto;
   margin-right: auto;
 `;

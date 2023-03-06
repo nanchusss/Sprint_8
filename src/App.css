@@ -1,11 +1,12 @@
 *{
   background-color: black;
     font-family: url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap");
+    font-size: 16px;
 }
 
 
 .App {
-  background-color: black;
+  /* background-color: black; */
   text-align: center;
 
   
@@ -80,22 +81,25 @@
  
   background-color: #3f6dac !important;
   }
-
-  .carousel-caption,h3,p,img{
+.carousel-indicators{
+  background: none !important
+}
+  .carousel-caption{
     background: none !important;
-    width: 350px !important;
+    width: 750px !important;
     margin-bottom: 28px !important;
     font-size: 24px !important;
     font-weight: 500px !important;
+  }
+  .carousel-caption, img,p{
+   width: 350px !important;
+   background: none !important;
   }
  
   h3{
     max-width:400px !important;
   }
-  .groguLogo{
-    max-width: 350px !important;
-    width: 100%;
-  }
+ 
   .p-mio{
     background: none !important;
     width: 450px !important;

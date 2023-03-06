@@ -8,7 +8,7 @@ const Bienvenida = ({ handleEstado }) => {
       {/* <MensajeBienvenida estado={estado}>Bienvenido</MensajeBienvenida> */}
       <Imagenes>
         <img
-          style={style.caso}
+          style={style.casco}
           data-mdb-toggle="animation"
           data-mdb-animation-reset="true"
           data-mdb-animation="slide-out-right"
@@ -23,7 +23,8 @@ const Bienvenida = ({ handleEstado }) => {
 };
 const style = {
   casco: {
-    boxShadow: "34px 10px 66px 0px rgba(240,240,240,0.71)",
+    background: "none",
+    // boxShadow: "34px 10px 66px 0px rgba(240,240,240,0.71)",
   },
 };
 const Btn = styled.button`

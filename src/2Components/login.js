@@ -82,7 +82,7 @@ const Formulario = ({ handleLogin }) => {
 const ContainerForm = styled.form`
   max-width: 700px;
   min-width: 500px;
-  /* background-color: #181818; */
+  //background-color: #181818; */
   color: #beb8b8;
   display: flex;
   font-size: 22px;
