@@ -57,7 +57,7 @@ function NavesListado({
 }
 
 const ContenedorTotal = styled.div`
-  max-width: 1000px;
+  width: 100%;
   padding: 10px;
   width: 90%;
   display: grid;

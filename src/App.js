@@ -6,11 +6,10 @@ import { NavLink, Routes, Route } from "react-router-dom";
 import styled from "styled-components";
 import Error404 from "./2Components/Error404";
 import ShipImage from "./2Components/imagen";
-import logo from "./images/1.png";
 import logo2 from "./images/klipartz.com (43).png";
-import logo3 from "./images/klipartz.com (48).png";
-import casco from "./images/klipartz.com (49).png";
 import Bienvenida from "./2Components/bienvenida";
+import Formulario from "./2Components/login";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   const [mostrarNave, setMostrarNave] = useState([]);
@@ -20,6 +19,8 @@ function App() {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(null);
   const [shipName, setShipName] = useState([]);
+  const [login, setLogin] = useState(false);
+  const [estadoDeLogin, setEstadoDeLogin] = useState(false);
 
   useEffect(() => {
     setLoading(true);
@@ -42,7 +43,15 @@ function App() {
         setStarships([]);
       });
   }, [currentPage]);
-
+  //ESTADO LOGIN---------------
+  function handleEstadoDeLogin() {
+    console.log("Está entrando para renderizar el componente del login");
+    setEstadoDeLogin(true);
+  }
+  //LOGIN---------------------
+  function handleLogin() {
+    setLogin(true);
+  }
   function handlePrevPage() {
     setCurrentPage(currentPage - 1);
   }
@@ -107,9 +116,19 @@ function App() {
       // </ContenedorMensajeBienvenida>
     );
   }
+  if (estadoDeLogin === true) {
+    return <Formulario handleLogin={handleLogin}></Formulario>;
+  }
   const renderizado = State ? (
     <Contenedor>
-      <img style={styles.img} src={logo2} alt="" />
+      <div style={styles.divLogin}>
+        <img style={styles.img} src={logo2} alt="" />
+        <button style={styles.login} onClick={handleEstadoDeLogin}>
+          LOGIN // SIGN UP{" "}
+        </button>
+      </div>
+      {estadoDeLogin === true ? <Formulario></Formulario> : null}
+
       <Menu>
         <NavLink to="/Home">HOME</NavLink>
         <NavLink to="/starships">STARSHIPS</NavLink>
@@ -168,19 +187,32 @@ const Name = styled.div`
 `;
 const styles = {
   img: {
+    paddingLeft: "100px",
     width: "200px",
-    position: "relative",
+    position: "sticky",
     display: "flex",
     alignItems: "center",
     justifyContent: "start",
     marginLeft: "auto",
     marginRight: "auto",
   },
+  login: {
+    justifyContent: "end",
+    alignItems: "center",
+
+    display: "flex",
+    color: "white",
+  },
+  divLogin: {
+    width: "100%",
+    display: "flex",
+    flexDirection: "row",
+  },
 };
 const Contenedor = styled.div`
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  max-width: 1000px;
+
   padding: 20px;
   width: 90%;
   display: flex;
