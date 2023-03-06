@@ -224,6 +224,8 @@ const Contenedor = styled.div`
 `;
 
 const Menu = styled.nav`
+  border-right-style: none !important;
+  border-left-style: none !important;
   max-width: 1200px;
   width: 100%;
   text-decoration: none;

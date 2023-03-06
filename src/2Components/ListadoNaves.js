@@ -25,12 +25,12 @@ function NavesListado({
             <ContenedordeNombreyModelo
               onClick={() => handleMostrarNave(starship)}
             >
-              <p style={styles.name} key={starship.name}>
+              <div style={styles.name} key={starship.name}>
                 {starship.name}
-              </p>
-              <p style={styles.detalle} key={starship.length}>
+              </div>
+              <div style={styles.detalle} key={starship.length}>
                 Model: {starship.model}
-              </p>
+              </div>
             </ContenedordeNombreyModelo>
           ))}
         </div>
@@ -70,6 +70,8 @@ const ContenedordeNombreyModelo = styled.button`
   min-width: 700px;
   color: white;
   margin: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   display: flex;
   flex-direction: column;
   border-radius: 6px;

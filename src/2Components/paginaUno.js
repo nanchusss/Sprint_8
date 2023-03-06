@@ -14,9 +14,11 @@ const Carrusel = () => {
         <img className="d-block w-100" src={imagen1} alt="Grogu te amo" />
         <Carousel.Caption>
           <h3>
-            <img src={grogulogo} alt="" />
+            <img className="groguLogo" src={grogulogo} alt="" />
           </h3>
-          <p classname="p-mio">The Mandalorian begins an important journey.</p>
+          <p classname="parrafosSubtitulo">
+            The Mandalorian begins an important journey.
+          </p>
           <div className="mb-2">
             <Button className="boton-grogu" variant="primary" size="lg">
               STREAM NOW
@@ -33,7 +35,9 @@ const Carrusel = () => {
 
         <Carousel.Caption>
           <img style={style.logo} src={logoImagen2} alt="" />
-          <h3>The Batch finds a mysterious missing vessel</h3>
+          <p classname="parrafosSubtitulo">
+            The Batch finds a mysterious missing vessel
+          </p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -46,10 +50,10 @@ const Carrusel = () => {
 
         <Carousel.Caption className="caption3">
           <img className="logo3" src={logo3} alt="" />
-          <h3>
+          <p classname="parrafosSubtitulo">
             "Mando Manía" Kikcs off with new <br /> products and collectible
             highlights!
-          </h3>
+          </p>
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
