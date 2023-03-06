@@ -8,6 +8,7 @@ const Bienvenida = ({ handleEstado }) => {
       {/* <MensajeBienvenida estado={estado}>Bienvenido</MensajeBienvenida> */}
       <Imagenes>
         <img
+          style={style.caso}
           data-mdb-toggle="animation"
           data-mdb-animation-reset="true"
           data-mdb-animation="slide-out-right"
@@ -20,7 +21,11 @@ const Bienvenida = ({ handleEstado }) => {
     </ContenedorMensajeBienvenida>
   );
 };
-
+const style = {
+  casco: {
+    boxShadow: "34px 10px 66px 0px rgba(240,240,240,0.71)",
+  },
+};
 const Btn = styled.button`
   line-height: 10px;
   display: grid;

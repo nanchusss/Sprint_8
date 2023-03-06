@@ -9,6 +9,7 @@ import ShipImage from "./2Components/imagen";
 import logo2 from "./images/logo.webp";
 import Bienvenida from "./2Components/bienvenida";
 import Formulario from "./2Components/login";
+import Carrusel from "./2Components/paginaUno";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
@@ -117,14 +118,21 @@ function App() {
           LOGIN // SIGN UP{" "}
         </button>
       </div>
-      {estadoDeLogin === true ? <Formulario></Formulario> : null}
+      {estadoDeLogin === true ? (
+        <Formulario></Formulario>
+      ) : (
+        <>
+          <Menu>
+            <NavLink to="/Home">HOME</NavLink>
+            <NavLink to="/starships">STARSHIPS</NavLink>
+            {/* <NavLink to="/tienda">Tienda</NavLink> */}
+          </Menu>
+          <Carrusel></Carrusel>
+        </>
+      )}
 
       {/*----------------------- MENÚ PRINCIPAL CON NAVLINK ARRIBA------------------------- */}
-      <Menu>
-        <NavLink to="/Home">HOME</NavLink>
-        <NavLink to="/starships">STARSHIPS</NavLink>
-        {/* <NavLink to="/tienda">Tienda</NavLink> */}
-      </Menu>
+
       <main>
         <Routes>
           <Route path="/Home" element={<Bienvenida />}></Route>
