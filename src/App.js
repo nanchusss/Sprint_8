@@ -6,7 +6,7 @@ import { NavLink, Routes, Route } from "react-router-dom";
 import styled from "styled-components";
 import Error404 from "./2Components/Error404";
 import ShipImage from "./2Components/imagen";
-import logo2 from "./images/klipartz.com (43).png";
+import logo2 from "./images/logo.webp";
 import Bienvenida from "./2Components/bienvenida";
 import Formulario from "./2Components/login";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -104,17 +104,7 @@ function App() {
     return <div>Error: {error.message}</div>;
   }
   if (estado === false) {
-    return (
-      <Bienvenida handleEstado={handleEstado}></Bienvenida>
-      // <ContenedorMensajeBienvenida>
-      //   {/* <MensajeBienvenida estado={estado}>Bienvenido</MensajeBienvenida> */}
-      //   <Imagenes>
-      //     <img src={casco} alt={"hola"} />
-      //   </Imagenes>
-
-      //   <Btn onClick={handleEstado}>START</Btn>
-      // </ContenedorMensajeBienvenida>
-    );
+    return <Bienvenida handleEstado={handleEstado}></Bienvenida>;
   }
   if (estadoDeLogin === true) {
     return <Formulario handleLogin={handleLogin}></Formulario>;
@@ -129,6 +119,7 @@ function App() {
       </div>
       {estadoDeLogin === true ? <Formulario></Formulario> : null}
 
+      {/*----------------------- MENÚ PRINCIPAL CON NAVLINK ARRIBA------------------------- */}
       <Menu>
         <NavLink to="/Home">HOME</NavLink>
         <NavLink to="/starships">STARSHIPS</NavLink>
@@ -153,20 +144,18 @@ function App() {
               />
             }
           />
-          {/* <Route path="/blog" element={<Blog />} /> */}
+
           <Route path="/nave" element={<Naves mostrarNave={mostrarNave} />} />
         </Routes>
       </main>
-      {/* <aside>
-        <Carrito carrito={carrito} setCarrito={setCarrito}></Carrito>
-      </aside> */}
     </Contenedor>
   ) : (
+    // --------------------------------------------------------------------------------------------
+    //Menú con Home y Starships que no funcionan, he probado poniendo de nuevo Routes, pero tampoco.
     <Contenedor>
       <Menu>
         <NavLink to="/Home">HOME</NavLink>
         <NavLink to="/starships">STARSHIPS</NavLink>
-        {/* <NavLink to="/tienda">Tienda</NavLink> */}
       </Menu>
 
       <Name>{shipName}</Name>
@@ -188,7 +177,7 @@ const Name = styled.div`
 const styles = {
   img: {
     paddingLeft: "100px",
-    width: "200px",
+    width: "300px",
     position: "sticky",
     display: "flex",
     alignItems: "center",
@@ -197,6 +186,7 @@ const styles = {
     marginRight: "auto",
   },
   login: {
+    border: "none",
     justifyContent: "end",
     alignItems: "center",
 
@@ -230,7 +220,7 @@ const Menu = styled.nav`
   width: 100%;
   text-decoration: none;
   margin-top: 30px;
-  border: 3px solid #61606033;
+  border: 3px solid #86858533;
   text-align: center;
   grid-column: span 2;
   border-radius: 3px;
@@ -239,11 +229,16 @@ const Menu = styled.nav`
     color: #fff;
     display: inline-block;
     padding: 15px 20px;
-    border: 3px solid #61606033;
+    /* border: 3px solid #61606033; */
   }
 
   a:hover {
     background: #414242;
+    text-decoration: none;
+  }
+  a:active,
+  a:visited,
+  a:link {
     text-decoration: none;
   }
 `;

@@ -7,7 +7,6 @@ const Naves = ({ mostrarNave }) => {
   // console.log(mostrarNave[0]);
   return (
     <>
-      <h1>Naves con detalles</h1>
       <div>
         {mostrarNave.map((a, index) => {
           return (
@@ -35,8 +34,6 @@ const Naves = ({ mostrarNave }) => {
   );
 };
 const Contenedor1 = styled.div`
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   max-width: 1000px;
   padding: 20px;
   width: 90%;

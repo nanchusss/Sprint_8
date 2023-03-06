@@ -20,7 +20,6 @@ function NavesListado({
   return (
     <ContenedorTotal>
       <Contenedor>
-        <h2>Naves de Starwars</h2>
         <div>
           {starships.map((starship) => (
             <ContenedordeNombreyModelo
@@ -59,7 +58,7 @@ function NavesListado({
 const ContenedorTotal = styled.div`
   width: 100%;
   padding: 10px;
-  width: 90%;
+  width: 100%;
   display: grid;
   background-color: black;
   gap: 10px;
@@ -89,17 +88,6 @@ const Contenedor = styled.nav`
 
   grid-template-columns: 1fr;
   border-radius: 5px;
-
-  /* p {
-    color: #181717;
-    padding: 20px 20px;
-  }
-
-  p:hover {
-    background: #f2f4f6;
-    text-decoration: none;
-    border: 1px solid #bbbfc4;
-  } */
 `;
 
 const Butons = styled.nav`

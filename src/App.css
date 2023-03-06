@@ -12,6 +12,25 @@
 }
 
 
+.form-control:focus {
+        border-color: yellow !important;
+        border: 3px solid yellow !important;
+    } 
+    
+.btn-primary{
+  background-color: #484848!important;
+  border: none !important;
+  margin-top: 19px !important;
+  color: #f4f5f5 !important;
+   width: 100% !important;
+   height: 41px !important;
+ 
+}
+.btn-primary:hover{
+ 
+  background-color: #3f6dac !important;
+  }
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
