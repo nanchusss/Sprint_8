@@ -1,9 +1,12 @@
 import React from "react"; //En este componente debería aparecer la información de cada nave
 import styled from "styled-components";
+import Pilotos from "./pilotos";
 
 // Acá lo que voy a poner es que se recibe por ejemplo el nombre de la nave y que eso me va a ejecutar  una función que va a traer de la api la información que pido según el id.
 
-const Naves = ({ mostrarNave }) => {
+const Naves = ({ mostrarNave, pilotos }) => {
+  console.log(pilotos);
+  console.log("entra pilotos");
   // console.log(mostrarNave[0]);
   return (
     <>
@@ -23,8 +26,8 @@ const Naves = ({ mostrarNave }) => {
               <p>{a.consumables}</p>
               <p>{a.length}</p>
               <p>{a.maxAtmosphericSpeed}</p>
-              <p>{a.pilots}</p>
             </Contenedor2>
+            <Pilotos pilotos={pilotos}></Pilotos>
           </>
         );
       })}

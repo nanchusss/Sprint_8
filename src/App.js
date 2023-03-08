@@ -64,10 +64,17 @@ function App() {
   }
   const [State, setInitialState] = useState(true);
   const [estado, setEstado] = useState(false);
+  const [pilotos, setPilotos] = useState([]);
 
   function handleMostrarNave(a) {
     let model = `Model: ${a.model}`;
     let film = a.films;
+    let pilotitos = a.pilots;
+    console.log("así viene la info de pilotos", a.pilots);
+    console.log("pilotitos es...", pilotitos);
+    console.log(a.pilots);
+    setPilotos(pilotitos);
+    console.log(pilotos);
     console.log(model);
     setInitialState((a) => !a);
     // console.log(a.data);
@@ -168,7 +175,7 @@ function App() {
 
       <Name>{shipName}</Name>
       <ShipImage shipName={shipName} loading={loading} error={error} />
-      <Naves mostrarNave={mostrarNave}></Naves>
+      <Naves pilotos={pilotos} mostrarNave={mostrarNave}></Naves>
     </Contenedor>
   );
   return <div className="App">{renderizado}</div>;

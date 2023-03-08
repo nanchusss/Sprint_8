@@ -1,4 +1,4 @@
-import casco from "../images/klipartz.com (49).png";
+import casco from "../images/casco.webp";
 import styled from "styled-components";
 import { keyframes } from "styled-components";
 
@@ -7,47 +7,27 @@ const Bienvenida = ({ handleEstado }) => {
     <ContenedorMensajeBienvenida>
       {/* <MensajeBienvenida estado={estado}>Bienvenido</MensajeBienvenida> */}
       <Imagenes>
+        <div className="overlay"></div>
         <img
+          className="casco"
           style={style.casco}
           data-mdb-toggle="animation"
           data-mdb-animation-reset="true"
           data-mdb-animation="slide-out-right"
           src={casco}
           alt={"hola"}
+          onClick={handleEstado}
         />
       </Imagenes>
-
-      <Btn onClick={handleEstado}>START</Btn>
     </ContenedorMensajeBienvenida>
   );
 };
 const style = {
   casco: {
     background: "none",
-    // boxShadow: "34px 10px 66px 0px rgba(240,240,240,0.71)",
+    //boxShadow: "34px 10px 66px 0px rgba(240,240,240,0.71)",
   },
 };
-const Btn = styled.button`
-  line-height: 10px;
-  display: grid;
-  color: #b5b2b2;
-  margin-left: auto;
-  width: 200px;
-  margin-right: auto;
-  font-size: 22px;
-  border-radius: 5px;
-  margin-top: 10px;
-  margin-bottom: 30px;
-  padding: 20px;
-  text-align: center;
-  background: #1d1c1c;
-  text-transform: uppercase;
-  grid-column: span 1;
-  :hover {
-    background: #414242;
-    text-decoration: none;
-  }
-`;
 
 const ContenedorMensajeBienvenida = styled.body`
   background-color: black;
