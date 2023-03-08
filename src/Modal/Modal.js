@@ -25,6 +25,7 @@ const styles = {
   wrapper: {
     position: "absolute",
     top: 300,
+
     left: 0,
     width: "100%",
     background: "#18181899",
@@ -42,7 +43,7 @@ const styles = {
     padding: 20,
     boxShadow: "2px 2px 10px rgba(90, 87, 87, 0.3)",
     zIndex: 10,
-    minWidth: 420,
+    minWidth: 350,
     minHeight: 80,
   },
 };

@@ -9,7 +9,7 @@ const Peliculas = ({ peliculas }) => {
   const [active, setActive] = useState(false);
   const toggle = () => {
     console.log("se ejecuta toggle");
-    setActive(!active);
+    // setActive(!active);
   };
 
   useEffect(() => {
@@ -48,6 +48,8 @@ const Peliculas = ({ peliculas }) => {
         title: informacionPelicula.title,
         director: informacionPelicula.director,
         date: informacionPelicula.release_date,
+        image: informacionPelicula.image,
+        opening: informacionPelicula.opening_crawl,
       },
     ]);
 
@@ -60,7 +62,6 @@ const Peliculas = ({ peliculas }) => {
   return (
     <>
       <DivGeneralPeliculas>
-        <div>PELÍCULAS :</div>
         <DivStyledPeliculas>
           {peliculasData.map((pelicula) => (
             <div key={pelicula.name}>
@@ -68,7 +69,8 @@ const Peliculas = ({ peliculas }) => {
                 {pelicula.name}
               </div>
               {
-                <divImagenes>
+                <DivImagenes>
+                  <div>{pelicula.title}</div>
                   <img
                     style={style.fichaPelicula}
                     src={pelicula.image}
@@ -76,7 +78,7 @@ const Peliculas = ({ peliculas }) => {
                     onClick={() => handlePeliculasData(pelicula)}
                     active={active}
                   />
-                </divImagenes>
+                </DivImagenes>
               }
             </div>
           ))}
@@ -87,9 +89,13 @@ const Peliculas = ({ peliculas }) => {
             return (
               <Modal style={style.modal} active={active} toggle={toggle}>
                 <InfoPeliculas>
-                  <div> Title: {pelicula.title}</div>
-                  <div> Director: {pelicula.director}</div>
-                  <div> Release Date: {pelicula.date}</div>
+                  <img src={pelicula.image} alt={pelicula.title} />
+                  <PeliculasInfo>
+                    <div> Title: {pelicula.title}</div>
+                    <div> Director: {pelicula.director}</div>
+                    <div> Release Date: {pelicula.date}</div>
+                    <div> Opening Crawl: {pelicula.opening}</div>
+                  </PeliculasInfo>
                 </InfoPeliculas>
               </Modal>
             );
@@ -99,24 +105,35 @@ const Peliculas = ({ peliculas }) => {
   );
 };
 const DivGeneralPeliculas = styled.div`
+  font-family: url("https://fonts.googleapis.com/css2?family=Tilt+Warp&display=swap");
   display: flex;
-  border: 1px solid grey;
   padding: 15px;
   border-radius: 5px;
   color: white;
-  margin: 45px;
+  margin: 15px;
   flex-direction: row;
   align-items: baseline;
+  box-shadow: "2px 2px 10px rgba(246, 246, 246, 0.3)";
 `;
 const InfoPeliculas = styled.div`
   color: #9b9898;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
   margin: 15px;
   padding: 5px;
   text-align: left;
+`;
+const PeliculasInfo = styled.div`
+  font-size: 16px;
+  max-width: 100%;
+  margin-left: 20px;
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  flex-direction: column;
+  padding: 15px;
 `;
 const style = {
   nombrePelicula: {
@@ -128,7 +145,9 @@ const style = {
     width: "80px",
     border: "1px solid white",
     borderRadius: "5px",
-    marginTop: "15px",
+    display: "flex",
+    flexDirection: "space-between",
+    marginTop: "55px",
     height: "100px",
     cursor: "pointer",
     margin: "10px",
@@ -143,6 +162,15 @@ const DivStyledPeliculas = styled.div`
   flex-direction: row;
   margin: 10px;
   padding: 10px;
+  color: white;
+`;
+const DivImagenes = styled.div`
+  font-size: 12px !important;
+  display: grid;
+  grid-template-columns: 1fr;
+  margin-right: 20px;
+  margin-left: 20px;
+  padding: 12px;
   color: white;
 `;
 

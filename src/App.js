@@ -11,6 +11,7 @@ import Bienvenida from "./Pages/Bienvenida";
 import Formulario from "./Pages/Login";
 import Carrusel from "./Pages/Home";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Subtitulos } from "./StyledComponents/Generales";
 
 function App() {
   const [mostrarNave, setMostrarNave] = useState([]);
@@ -195,10 +196,13 @@ function App() {
 const Name = styled.div`
   color: white;
   text-transform: uppercase;
-  font-size: 24px;
+  font-size: 54px;
   margin-top: 20px;
+  font-weight: bold;
   padding: 15px;
-  font-family: src("https://fonts.googleapis.com");
+  font-family: src(
+    "https://fonts.googleapis.com/css2?family=Tilt+Warp&display=swap"
+  );
 `;
 const styles = {
   img: {

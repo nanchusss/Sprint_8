@@ -62,7 +62,6 @@ const ShipImage = ({ shipName, loading, error }) => {
 const styles = {
   img: {
     backgroundColor: "black",
-    borderRadius: "5px",
   },
 };
 const DivImagen = styled.div`

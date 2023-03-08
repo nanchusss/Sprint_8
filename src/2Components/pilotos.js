@@ -50,6 +50,7 @@ const Pilotos = ({ pilotos }) => {
         birth: informacionPiloto.birth_year,
         gender: informacionPiloto.gender,
         hair: informacionPiloto.hair_color,
+        image: informacionPiloto.image,
       },
     ]);
     console.log("se ejecuta toggle");
@@ -62,7 +63,6 @@ const Pilotos = ({ pilotos }) => {
   return (
     <>
       <DivGeneralPilotos>
-        <div>PILOTOS:</div>
         <DivStyledPilotos>
           {pilotosData.map((piloto) => (
             <div key={piloto.name}>
@@ -90,12 +90,14 @@ const Pilotos = ({ pilotos }) => {
             return (
               <Modal style={style.modal} active={active} toggle={toggle}>
                 <InfoPilotos>
-                  <div> Name: {piloto.name}</div>
-                  <div> Height: {piloto.height} cm </div>
-                  <div> Date of Birth: {piloto.birth}</div>
-                  <div> Hair color: {piloto.hair}</div>
+                  <img src={piloto.image} alt={piloto.name} />
+                  <PilotosInfo>
+                    <div> Name: {piloto.name}</div>
+                    <div> Height: {piloto.height} cm </div>
+                    <div> Date of Birth: {piloto.birth}</div>
+                    <div> Hair color: {piloto.hair}</div>
+                  </PilotosInfo>
                 </InfoPilotos>
-                <div>Este valor indica el número de páginas de la Web</div>
               </Modal>
             );
           })
@@ -105,21 +107,30 @@ const Pilotos = ({ pilotos }) => {
 };
 const DivGeneralPilotos = styled.div`
   display: flex;
-  border: 1px solid grey;
+  width: 100%;
   padding: 15px;
   border-radius: 5px;
   color: white;
   flex-direction: row;
   align-items: baseline;
+  box-shadow: "2px 2px 10px rgba(182, 178, 178, 0.3)";
+`;
+const PilotosInfo = styled.div`
+  font-size: 16px;
+  margin-left: 20px;
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  flex-direction: column;
+  padding: 15px;
 `;
 const InfoPilotos = styled.div`
   color: #dfdcdc;
-  display: flex;
+  display: grid;
   flex-direction: column;
+  grid-template-columns: 1fr 1fr;
   margin: 15px;
   padding: 5px;
-  align-items: center;
-  justify-content: center;
   text-align: left;
 `;
 const style = {
@@ -129,11 +140,13 @@ const style = {
     margin: "10px",
   },
   fichaPiloto: {
-    width: "80px",
-    border: "1px solid white",
+    width: "220px",
+    margin: "30px",
     borderRadius: "5px",
     marginTop: "15px",
-    height: "100px",
+    marginLeft: "35px",
+    marginRight: "35px",
+    height: "270px",
     cursor: "pointer",
   },
   modal: {
