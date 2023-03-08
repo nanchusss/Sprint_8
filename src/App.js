@@ -1,15 +1,15 @@
 import "./App.css";
 import NavesListado from "./2Components/ListadoNaves";
-import Naves from "./2Components/Nave";
+import Naves from "./Pages/Nave";
 import { useState, useEffect } from "react";
 import { NavLink, Routes, Route } from "react-router-dom";
 import styled from "styled-components";
 import Error404 from "./2Components/Error404";
-import ShipImage from "./2Components/imagen";
+import ShipImage from "./2Components/Imagen";
 import logo2 from "./images/logo.webp";
-import Bienvenida from "./2Components/bienvenida";
-import Formulario from "./2Components/login";
-import Carrusel from "./2Components/paginaUno";
+import Bienvenida from "./Pages/Bienvenida";
+import Formulario from "./Pages/Login";
+import Carrusel from "./Pages/Home";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
@@ -65,6 +65,7 @@ function App() {
   const [State, setInitialState] = useState(true);
   const [estado, setEstado] = useState(false);
   const [pilotos, setPilotos] = useState([]);
+  const [peliculas, setPeliculas] = useState([]);
 
   function handleMostrarNave(a) {
     let model = `Model: ${a.model}`;
@@ -74,8 +75,9 @@ function App() {
     console.log("pilotitos es...", pilotitos);
     console.log(a.pilots);
     setPilotos(pilotitos);
+    setPeliculas(film);
     console.log(pilotos);
-    console.log(model);
+    console.log(film);
     setInitialState((a) => !a);
     // console.log(a.data);
     setShipName(a.name);
@@ -130,11 +132,12 @@ function App() {
       ) : (
         <>
           <Menu>
-            <NavLink to="/Home">HOME</NavLink>
+            <NavLink to="/Home" element={<Carrusel></Carrusel>}>
+              HOME
+            </NavLink>
             <NavLink to="/starships">STARSHIPS</NavLink>
             {/* <NavLink to="/tienda">Tienda</NavLink> */}
           </Menu>
-          <Carrusel></Carrusel>
         </>
       )}
 
@@ -142,7 +145,7 @@ function App() {
 
       <main>
         <Routes>
-          <Route path="/Home"></Route>
+          <Route path="/Home" element={<Carrusel />}></Route>
           <Route path="*" element={<Error404 />} />
           <Route
             path="/starships"
@@ -169,13 +172,21 @@ function App() {
     //Menú con Home y Starships que no funcionan, he probado poniendo de nuevo Routes, pero tampoco.
     <Contenedor>
       <Menu>
-        <NavLink to="/Home">HOME</NavLink>
-        <NavLink to="/starships">STARSHIPS</NavLink>
+        <NavLink to="/Home" element={<Carrusel />}>
+          HOME
+        </NavLink>
+        <NavLink to="/starships" element={<NavesListado />}>
+          STARSHIPS
+        </NavLink>
       </Menu>
 
       <Name>{shipName}</Name>
       <ShipImage shipName={shipName} loading={loading} error={error} />
-      <Naves pilotos={pilotos} mostrarNave={mostrarNave}></Naves>
+      <Naves
+        pilotos={pilotos}
+        mostrarNave={mostrarNave}
+        peliculas={peliculas}
+      ></Naves>
     </Contenedor>
   );
   return <div className="App">{renderizado}</div>;

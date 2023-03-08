@@ -33,7 +33,12 @@ const Carrusel = () => {
         <img className="d-block w-100" src={imagen2} alt="Second slide" />
 
         <Carousel.Caption>
-          <img style={style.logo} src={logoImagen2} alt="" />
+          <img
+            style={style.logo}
+            className="d-block"
+            src={logoImagen2}
+            alt=""
+          />
           <p classname="parrafosSubtitulo">
             The Batch finds a mysterious missing vessel
           </p>

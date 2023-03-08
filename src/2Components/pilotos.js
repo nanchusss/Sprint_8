@@ -1,24 +1,40 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import Modal from "../Modal/Modal";
 
 const Pilotos = ({ pilotos }) => {
   const [pilotosData, setPilotosData] = useState([]);
   const [state, setState] = useState(false);
   const [pilotoInfo, setPilotoInfo] = useState([]);
+  const [active, setActive] = useState(false);
+  const toggle = () => {
+    console.log("se ejecuta toggle");
+    setActive(!active);
+  };
 
   useEffect(() => {
     const getDatosPilotos = async () => {
       const newArray = pilotos.map(async (url) => {
         const piloto = await fetch(url);
         const pilotoTraido = await piloto.json();
+        const pilotoId = pilotoTraido.url.split("/").filter(Boolean).pop();
 
-        return pilotoTraido;
+        // Construir la URL de la imagen del piloto
+        const imagenUrl = `https://starwars-visualguide.com/assets/img/characters/${pilotoId}.jpg`;
+        console.log(imagenUrl);
+        // Devolver un objeto con los datos del piloto y la URL de la imagen
+        pilotoTraido.image = imagenUrl;
+        console.log(pilotoTraido);
+        return {
+          ...pilotoTraido,
+          imagenUrl,
+        };
       });
 
       Promise.all(newArray).then((data) => {
         console.log(data);
         setPilotosData(data);
-        console.log(pilotosData);
+        console.log("Acáaa pilotos data", pilotosData);
       });
     };
 
@@ -36,6 +52,8 @@ const Pilotos = ({ pilotos }) => {
         hair: informacionPiloto.hair_color,
       },
     ]);
+    console.log("se ejecuta toggle");
+    setActive(!active);
     console.log(pilotoInfo);
     console.log("chichi");
     console.log(informacionPiloto.name);
@@ -44,19 +62,25 @@ const Pilotos = ({ pilotos }) => {
   return (
     <>
       <DivGeneralPilotos>
-        <div>PILOTOS</div>
+        <div>PILOTOS:</div>
         <DivStyledPilotos>
           {pilotosData.map((piloto) => (
             <div key={piloto.name}>
-              <div
-                name={piloto.name}
-                style={style.nombrePiloto}
-                state={state}
-                onClick={() => handlePilotoInfo(piloto)}
-              >
+              <div name={piloto.name} style={style.nombrePiloto} state={state}>
                 {piloto.name}
               </div>
-              {/* <img src={piloto.image} alt={piloto.name} /> */}
+              {
+                <divImagenes>
+                  <img
+                    style={style.fichaPiloto}
+                    src={piloto.image}
+                    alt={piloto.name}
+                    onClick={() => handlePilotoInfo(piloto)}
+                    toggle={toggle}
+                    active={active}
+                  />
+                </divImagenes>
+              }
             </div>
           ))}
         </DivStyledPilotos>
@@ -64,12 +88,15 @@ const Pilotos = ({ pilotos }) => {
       {state === true
         ? pilotoInfo.map((piloto) => {
             return (
-              <InfoPilotos>
-                <div> {piloto.name}</div>
-                <div> {piloto.height}</div>
-                <div> {piloto.birth}</div>
-                <div> {piloto.hair}</div>
-              </InfoPilotos>
+              <Modal style={style.modal} active={active} toggle={toggle}>
+                <InfoPilotos>
+                  <div> Name: {piloto.name}</div>
+                  <div> Height: {piloto.height} cm </div>
+                  <div> Date of Birth: {piloto.birth}</div>
+                  <div> Hair color: {piloto.hair}</div>
+                </InfoPilotos>
+                <div>Este valor indica el número de páginas de la Web</div>
+              </Modal>
             );
           })
         : null}
@@ -78,6 +105,9 @@ const Pilotos = ({ pilotos }) => {
 };
 const DivGeneralPilotos = styled.div`
   display: flex;
+  border: 1px solid grey;
+  padding: 15px;
+  border-radius: 5px;
   color: white;
   flex-direction: row;
   align-items: baseline;
@@ -88,13 +118,26 @@ const InfoPilotos = styled.div`
   flex-direction: column;
   margin: 15px;
   padding: 5px;
-  margin-left: 0px;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
 `;
 const style = {
   nombrePiloto: {
-    cursor: "pointer",
-    fontSize: "12px",
+    color: "#b6b4b4",
+    fontSize: "15px",
     margin: "10px",
+  },
+  fichaPiloto: {
+    width: "80px",
+    border: "1px solid white",
+    borderRadius: "5px",
+    marginTop: "15px",
+    height: "100px",
+    cursor: "pointer",
+  },
+  modal: {
+    background: "#fff",
   },
 };
 const DivStyledPilotos = styled.div`
@@ -107,49 +150,3 @@ const DivStyledPilotos = styled.div`
 `;
 
 export default Pilotos;
-
-// const Pilotos = ({ pilotos }) => {
-//   //const [urlPilotos, setUrlPilotos] = useState("");
-//   const [pilotosData, setPilotosData] = useState([]);
-//   //const [error, setError] = useState("");
-
-//   const newArray = pilotos.map(async (url) => {
-//     const piloto = await fetch({ url });
-//     const pilotoTraido = await piloto.json();
-
-//     return pilotoTraido;
-//   });
-
-//   Promise.all(newArray).then((data) => {
-//     console.log(data);
-//     console.log(newArray);
-//   });
-
-//   //   useEffect(() => {
-//   //    // setUrlPilotos(pilotos)
-
-//   //     fetch({pilotos.map((a) => {
-//   //     console.log("esta es la url",a);
-//   //    })
-//   //       .then((response) => response.json())
-//   //       //transforma a Json
-//   //       .then((data) => {
-//   //         setPilotosData(data.results);
-//   //         console.log(data.results);
-//   //       })
-//   //       .catch(() => {
-//   //         setError("Error");
-//   //       }),
-//   //   }, []);
-//   //   console.log("entra pilotos");
-
-//   // console.log(urlPilotos);
-
-//   return (
-//     <>
-//       <p>pilotos</p>
-//     </>
-//   );
-// };
-
-// export default Pilotos;
