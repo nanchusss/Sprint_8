@@ -5,7 +5,7 @@ export const Subtitulos = styled.h3`
   color: #fff;
   font-weight: bold;
   margin-top: 50px;
-  margin-bottom: 50px;
+  margin-bottom: 0px;
 `;
 export const Links = styled.a`
   color: #fff;

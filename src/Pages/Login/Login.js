@@ -1,9 +1,9 @@
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import styled from "styled-components";
+import { ContainerForm, style } from "./Login.styles";
 import { useState, useEffect } from "react";
-import logo from "../images/descarga.png";
-import "../App.css";
+import logo from "./Images/descarga.png";
+import "../../App.css";
 
 const Formulario = ({ handleLogin }) => {
   const [email, setEmail] = useState("");
@@ -77,27 +77,6 @@ const Formulario = ({ handleLogin }) => {
       </Form>
     </ContainerForm>
   );
-};
-
-const ContainerForm = styled.form`
-  max-width: 700px;
-  min-width: 500px;
-  //background-color: #181818; */
-  color: #beb8b8;
-  display: flex;
-  font-size: 22px;
-  margin-top: 60px;
-  padding: 20px;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-left: auto;
-  margin-right: auto;
-`;
-const style = {
-  img: {
-    width: "322px",
-  },
 };
 
 export default Formulario;

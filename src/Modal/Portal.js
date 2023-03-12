@@ -2,7 +2,7 @@ import { Component } from "react";
 import ReactDOM from "react-dom";
 
 const portalRoot = document.getElementById("portal");
-console.log("no se que pasa");
+console.log("Aquí Portal montando");
 
 export default class Portal extends Component {
   constructor() {

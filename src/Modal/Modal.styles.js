@@ -1,0 +1,27 @@
+export const styles = {
+  wrapper: {
+    position: "absolute",
+    left: "auto",
+    right: "auto",
+    width: "100%",
+    background: "#18181899",
+    color: "black",
+    opacity: "0,5",
+    height: "100%",
+    minHeight: "1000px",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  window: {
+    position: "relative",
+    borderRadius: 5,
+    justifyContent: "center",
+    alignItems: "flex-start",
+    padding: 20,
+    boxShadow: "2px 2px 10px rgba(90, 87, 87, 0.3)",
+    zIndex: 10,
+    minWidth: 350,
+    minHeight: 80,
+  },
+};

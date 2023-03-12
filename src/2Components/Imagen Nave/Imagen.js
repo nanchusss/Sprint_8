@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import styled from "styled-components";
+import { styles, DivImagen } from "./Imagen.styled";
 
 const ShipImage = ({ shipName, loading, error }) => {
   const [shipImage, setShipImage] = useState("");
@@ -54,18 +54,10 @@ const ShipImage = ({ shipName, loading, error }) => {
       {shipImage ? (
         <img style={styles.img} src={shipImage} alt={idNave} />
       ) : (
-        <p>Loading...</p>
+        <p style={styles.p}>Loading...</p>
       )}
     </DivImagen>
   );
 };
-const styles = {
-  img: {
-    backgroundColor: "black",
-  },
-};
-const DivImagen = styled.div`
-  margin-top: 30px;
-`;
 
 export default ShipImage;

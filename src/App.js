@@ -1,17 +1,17 @@
 import "./App.css";
-import NavesListado from "./2Components/ListadoNaves";
-import Naves from "./Pages/Nave";
+import NavesListado from "./2Components/ListadoNaves/ListadoNaves";
+import Naves from "./Pages/Nave/Nave";
 import { useState, useEffect } from "react";
 import { NavLink, Routes, Route } from "react-router-dom";
-import styled from "styled-components";
+import { Name, styles, Contenedor, Menu } from "./App.styles";
 import Error404 from "./2Components/Error404";
-import ShipImage from "./2Components/Imagen";
+import ShipImage from "./2Components/Imagen Nave/Imagen";
 import logo2 from "./images/logo.webp";
-import Bienvenida from "./Pages/Bienvenida";
-import Formulario from "./Pages/Login";
+import Bienvenida from "./Pages/Bienvenida/Bienvenida";
+import Formulario from "./Pages/Login/Login";
 import Carrusel from "./Pages/Home";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Subtitulos } from "./StyledComponents/Generales";
+//import { Subtitulos } from "./StyledComponents/Generales";
 
 function App() {
   const [mostrarNave, setMostrarNave] = useState([]);
@@ -192,82 +192,5 @@ function App() {
   );
   return <div className="App">{renderizado}</div>;
 }
-
-const Name = styled.div`
-  color: white;
-  text-transform: uppercase;
-  font-size: 54px;
-  margin-top: 20px;
-  font-weight: bold;
-  padding: 15px;
-  font-family: src(
-    "https://fonts.googleapis.com/css2?family=Tilt+Warp&display=swap"
-  );
-`;
-const styles = {
-  img: {
-    paddingLeft: "100px",
-    width: "300px",
-    position: "sticky",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "start",
-    marginLeft: "auto",
-    marginRight: "auto",
-  },
-  login: {
-    border: "none",
-    justifyContent: "end",
-    alignItems: "center",
-
-    display: "flex",
-    color: "white",
-  },
-  divLogin: {
-    width: "100%",
-    display: "flex",
-    flexDirection: "row",
-  },
-};
-const Contenedor = styled.div`
-  padding: 20px;
-  width: 90%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-left: auto;
-  margin-right: auto;
-`;
-
-const Menu = styled.nav`
-  border-right-style: none !important;
-  border-left-style: none !important;
-  max-width: 1200px;
-  width: 100%;
-  text-decoration: none;
-  margin-top: 30px;
-  border: 3px solid #86858533;
-  text-align: center;
-  grid-column: span 2;
-  border-radius: 3px;
-
-  a {
-    color: #fff;
-    display: inline-block;
-    padding: 15px 20px;
-    /* border: 3px solid #61606033; */
-  }
-
-  a:hover {
-    background: #414242;
-    text-decoration: none;
-  }
-  a:active,
-  a:visited,
-  a:link {
-    text-decoration: none;
-  }
-`;
 
 export default App;
