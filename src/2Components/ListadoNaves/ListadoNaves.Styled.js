@@ -1,9 +1,7 @@
 import styled from "styled-components";
 
 export const ContenedorTotal = styled.div`
-  width: 100%;
   padding: 10px;
-  width: 100%;
   display: grid;
   gap: 10px;
   margin-left: auto;
@@ -16,6 +14,7 @@ export const ContenedordeNombreyModelo = styled.button`
   margin: 20px;
   padding-top: 10px;
   padding-bottom: 10px;
+  padding-left: 20px;
   display: flex;
   flex-direction: column;
   border-radius: 6px;
@@ -24,6 +23,7 @@ export const ContenedordeNombreyModelo = styled.button`
   :hover {
     background: #3b3b3b;
     text-decoration: none;
+    opacity: 0.6;
   }
 `;
 
@@ -31,7 +31,6 @@ export const Contenedor = styled.nav`
   width: 100%;
   flex-direction: column;
   text-align: center;
-
   grid-template-columns: 1fr;
   border-radius: 5px;
 `;
@@ -48,17 +47,15 @@ export const Butons = styled.nav`
 export const styles = {
   btn: {
     height: "60px",
-    padding: "20px",
     minWidth: "250px",
-    color: "black",
+    color: "white",
+    cursor: "pointer",
     weight: "bold",
-    backgroundColor: "yellow",
     borderRadius: "30px",
-    border: "2px solid #050505",
+    border: "2px solid #c5e029",
   },
   btn2: {
     height: "60px",
-    padding: "20px",
     minWidth: "250px",
     color: "white",
     backgroundColor: "black",

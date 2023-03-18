@@ -18,7 +18,6 @@ export const breatheAnimation = keyframes`
  100% { height: 100px; width: 100px; opacity: 0.6; }`;
 
 export const Imagenes = styled.div`
-  width: 130px;
   background-color: black;
   display: flex;
   align-items: center;

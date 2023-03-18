@@ -6,6 +6,7 @@ export const DivGeneralPilotos = styled.div`
   border-radius: 5px;
   color: white;
   flex-direction: row;
+  justify-content: center;
   align-items: baseline;
   box-shadow: "2px 2px 10px rgba(182, 178, 178, 0.3)";
 `;

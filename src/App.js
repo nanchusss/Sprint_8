@@ -11,6 +11,8 @@ import Bienvenida from "./Pages/Bienvenida/Bienvenida";
 import Formulario from "./Pages/Login/Login";
 import Carrusel from "./Pages/Home";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Link from "./2Components/Links";
+import Rout from "./Routes/Routes";
 //import { Subtitulos } from "./StyledComponents/Generales";
 
 function App() {
@@ -52,11 +54,14 @@ function App() {
   }
   //LOGIN---------------------
   function handleLogin() {
+    console.log("set login andando");
     setLogin(true);
+    console.log("Bienvenido,estas loggeado");
   }
   function handlePrevPage() {
     setCurrentPage(currentPage - 1);
   }
+
   function handleNextPage() {
     setCurrentPage(currentPage + 1);
   }
@@ -117,76 +122,62 @@ function App() {
   if (estado === false) {
     return <Bienvenida handleEstado={handleEstado}></Bienvenida>;
   }
-  if (estadoDeLogin === true) {
-    return <Formulario handleLogin={handleLogin}></Formulario>;
+  //Esto lo comento para probar otra cosa, porqu este me desata el login.
+  if (login === false) {
+    return <Formulario handleLogin={handleLogin} login={login}></Formulario>;
   }
+  //Si el login es falso está mostrando el login/ signup.
+  // si es verdadero muestra Estas loggeado
   const renderizado = State ? (
     <Contenedor>
-      <div style={styles.divLogin}>
-        <img style={styles.img} src={logo2} alt="" />
-        <button style={styles.login} onClick={handleEstadoDeLogin}>
-          LOGIN // SIGN UP{" "}
-        </button>
-      </div>
-      {estadoDeLogin === true ? (
-        <Formulario></Formulario>
+      {login === false ? (
+        <div style={styles.divLogin}>
+          <img style={styles.img} src={logo2} alt="" />
+
+          <button style={styles.login} onClick={handleEstadoDeLogin}>
+            LOGIN // SIGN UP{" "}
+          </button>
+        </div>
       ) : (
-        <>
-          <Menu>
-            <NavLink to="/Home" element={<Carrusel></Carrusel>}>
-              HOME
-            </NavLink>
-            <NavLink to="/starships">STARSHIPS</NavLink>
-            {/* <NavLink to="/tienda">Tienda</NavLink> */}
-          </Menu>
-        </>
+        <div style={styles.divLogin}>
+          <img style={styles.img} src={logo2} alt="" />
+
+          <button style={styles.login} onClick={handleEstadoDeLogin}>
+            Welcome! {localStorage.getItem("email")}
+          </button>
+        </div>
       )}
 
-      {/*----------------------- MENÚ PRINCIPAL CON NAVLINK ARRIBA------------------------- */}
+      {estadoDeLogin === true ? <Formulario></Formulario> : null}
 
-      <main>
-        <Routes>
-          <Route path="/Home" element={<Carrusel />}></Route>
-          <Route path="*" element={<Error404 />} />
-          <Route
-            path="/starships"
-            element={
-              <NavesListado
-                loading={loading}
-                error={error}
-                currentPage={currentPage}
-                handlePrevPage={handlePrevPage}
-                handleNextPage={handleNextPage}
-                totalPages={totalPages}
-                starships={starships}
-                handleMostrarNave={handleMostrarNave}
-              />
-            }
-          />
+      {/*----------------MENÚ PRINCIPAL CON NAVLINK ARRIBA------------------------- */}
 
-          <Route path="/nave" element={<Naves mostrarNave={mostrarNave} />} />
-        </Routes>
-      </main>
+      <Link />
+
+      <Rout
+        loading={loading}
+        error={error}
+        currentPage={currentPage}
+        handlePrevPage={handlePrevPage}
+        handleNextPage={handleNextPage}
+        totalPages={totalPages}
+        starships={starships}
+        handleMostrarNave={handleMostrarNave}
+        mostrarNave={handleMostrarNave}
+      />
     </Contenedor>
   ) : (
     // --------------------------------------------------------------------------------------------
-    //Menú con Home y Starships que no funcionan, he probado poniendo de nuevo Routes, pero tampoco.
+    //Nave con Header con rutas.
     <Contenedor>
-      <Menu>
-        <NavLink to="/Home" element={<Carrusel />}>
-          HOME
-        </NavLink>
-        <NavLink to="/starships" element={<NavesListado />}>
-          STARSHIPS
-        </NavLink>
-      </Menu>
-
+      <Link />
       <Name>{shipName}</Name>
       <ShipImage shipName={shipName} loading={loading} error={error} />
       <Naves
         pilotos={pilotos}
         mostrarNave={mostrarNave}
         peliculas={peliculas}
+        shipName={shipName}
       ></Naves>
     </Contenedor>
   );

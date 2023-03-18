@@ -69,7 +69,7 @@ const Peliculas = ({ peliculas }) => {
 
   return (
     <>
-      <Subtitulos>Peliculas</Subtitulos>
+      <Subtitulos>Films</Subtitulos>
       <DivGeneralPeliculas>
         {state === true
           ? peliculaInfo.map((pelicula) => {

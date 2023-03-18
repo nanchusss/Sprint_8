@@ -14,7 +14,7 @@ const Naves = ({ mostrarNave, pilotos, peliculas }) => {
     <>
       {mostrarNave.map((a, index) => {
         return (
-          <>
+          <div>
             <Contenedor1>
               <p>{a.modelo}</p>
               <p>{a.starship}</p>
@@ -28,10 +28,10 @@ const Naves = ({ mostrarNave, pilotos, peliculas }) => {
               <p>{a.maxAtmosphericSpeed}</p>
             </Contenedor1>
 
-            <Pilotos pilotos={pilotos}></Pilotos>
+            <Pilotos pilotos={pilotos} title="Pilotos"></Pilotos>
 
             <Peliculas peliculas={peliculas}></Peliculas>
-          </>
+          </div>
         );
       })}
     </>

@@ -18,7 +18,7 @@ const Bienvenida = ({ handleEstado }) => {
           data-mdb-animation-reset="true"
           data-mdb-animation="slide-out-right"
           src={casco}
-          alt={"hola"}
+          alt={"Pagina de Inicio"}
           onClick={handleEstado}
         />
       </Imagenes>

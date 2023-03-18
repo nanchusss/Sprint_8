@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import logo from "./Images/descarga.png";
 import "../../App.css";
 
-const Formulario = ({ handleLogin }) => {
+const Formulario = ({ handleLogin, login }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loggedIn, setLoggedIn] = useState(false);
@@ -33,23 +33,13 @@ const Formulario = ({ handleLogin }) => {
     setLoggedIn(false);
   };
 
-  if (loggedIn) {
-    console.log("estas loggeado");
-    return (
-      <div>
-        <p>You are logged in as {localStorage.getItem("email")}</p>
-        <button onClick={handleLogout}>Logout</button>
-      </div>
-    );
-  }
-
   return (
     <ContainerForm>
       <img style={style.img} src={logo} alt="" />
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3 mt-3" controlId="formBasicEmail">
           <Form.Label class="mb-3 text-warning text-center lh-lg">
-            ENTER YOUR EMAIL ADDRESS
+            ENTER YOUR EMAIL ADDRESS TO ACCESS
           </Form.Label>
           <Form.Control
             type="email"
@@ -69,9 +59,18 @@ const Formulario = ({ handleLogin }) => {
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
-          <Form.Check type="checkbox" label="Check me out" />
+          <Form.Check
+            type="checkbox"
+            label="Check me out"
+            onChange={handleLogout}
+          />
         </Form.Group>
-        <Button variant="primary" type="submit" onChange={handleSubmit}>
+        <Button
+          variant="primary"
+          type="submit"
+          onChange={handleSubmit}
+          onClick={handleLogin}
+        >
           Submit
         </Button>
       </Form>

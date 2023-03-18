@@ -9,6 +9,7 @@ export const DivGeneralPeliculas = styled.div`
   margin: 15px;
   flex-direction: row;
   align-items: baseline;
+  justify-content: center;
   box-shadow: "2px 2px 10px rgba(246, 246, 246, 0.3)";
 `;
 export const InfoPeliculas = styled.div`

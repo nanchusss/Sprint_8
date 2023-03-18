@@ -33,7 +33,9 @@ export const styles = {
   divLogin: {
     width: "100%",
     display: "flex",
+    color: "grey",
     flexDirection: "row",
+    marginLeft: "150px",
   },
 };
 export const Contenedor = styled.div`
@@ -68,6 +70,8 @@ export const Menu = styled.nav`
 
   a:hover {
     background: #414242;
+    opacity: 0.6;
+    color: #fff;
     text-decoration: none;
   }
   a:active,

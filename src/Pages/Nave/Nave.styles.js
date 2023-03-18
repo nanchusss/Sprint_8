@@ -14,5 +14,6 @@ export const Contenedor1 = styled.div`
   margin-left: auto;
   margin-bottom: 50px;
   margin-right: auto;
+  margin-top: 50px;
   text-transform: uppercase;
 `;

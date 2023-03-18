@@ -1,12 +1,14 @@
 *{
-  background-color: black;
-    font-family: url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap");
+   
+  background: url("./images//estrellas.png");
+    font-family: url("https://fonts.googleapis.com/css2?family=Tilt+Warp&display=swap");
     font-size: 16px;
 }
 
 
 .App {
-  /* background-color: black; */
+   font-family: url("https://fonts.googleapis.com/css2?family=Tilt+Warp&display=swap");
+
   text-align: center;
 
   
@@ -30,7 +32,7 @@
   justify-content: center !important;
   align-items: center !important;
   margin: 15px;
-  color: black !important;
+  color: rgb(255, 255, 255) !important;
   letter-spacing: 0.25px !important;
   line-height: 24px !important;
   

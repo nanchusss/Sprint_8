@@ -70,7 +70,7 @@ const Pilotos = ({ pilotos }) => {
   if (pilotos.length > 0) {
     return (
       <>
-        <Subtitulos>Pilotos</Subtitulos>
+        <Subtitulos>Pilots</Subtitulos>
         <DivGeneralPilotos>
           <DivStyledPilotos>
             {pilotosData.map((piloto) => (
@@ -100,7 +100,6 @@ const Pilotos = ({ pilotos }) => {
               ? pilotoInfo.map((piloto) => {
                   return (
                     <>
-                      <Subtitulos>Pilotos</Subtitulos>
                       <Modal
                         style={style.modal}
                         active={active}
