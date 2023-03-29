@@ -7,7 +7,7 @@ import {
   style,
 } from "./Pilotos.styled";
 import { Subtitulos } from "../../StyledComponents/Generales";
-import Modal from "../../Modal/Modal";
+import Modal from "../../components/Modal/Modal";
 
 const Pilotos = ({ pilotos }) => {
   const [pilotosData, setPilotosData] = useState([]);
@@ -70,6 +70,25 @@ const Pilotos = ({ pilotos }) => {
   if (pilotos.length > 0) {
     return (
       <>
+        {state === true
+          ? pilotoInfo.map((piloto) => {
+              return (
+                <>
+                  <Modal style={style.modal} active={active} toggle={toggle}>
+                    <InfoPilotos>
+                      <img src={piloto.image} alt={piloto.name} />
+                      <PilotosInfo>
+                        <div> Name: {piloto.name}</div>
+                        <div> Height: {piloto.height} cm </div>
+                        <div> Date of Birth: {piloto.birth}</div>
+                        <div> Hair color: {piloto.hair}</div>
+                      </PilotosInfo>
+                    </InfoPilotos>
+                  </Modal>
+                </>
+              );
+            })
+          : null}
         <Subtitulos>Pilots</Subtitulos>
         <DivGeneralPilotos>
           <DivStyledPilotos>
@@ -96,29 +115,6 @@ const Pilotos = ({ pilotos }) => {
                 }
               </div>
             ))}
-            {state === true
-              ? pilotoInfo.map((piloto) => {
-                  return (
-                    <>
-                      <Modal
-                        style={style.modal}
-                        active={active}
-                        toggle={toggle}
-                      >
-                        <InfoPilotos>
-                          <img src={piloto.image} alt={piloto.name} />
-                          <PilotosInfo>
-                            <div> Name: {piloto.name}</div>
-                            <div> Height: {piloto.height} cm </div>
-                            <div> Date of Birth: {piloto.birth}</div>
-                            <div> Hair color: {piloto.hair}</div>
-                          </PilotosInfo>
-                        </InfoPilotos>
-                      </Modal>
-                    </>
-                  );
-                })
-              : null}
           </DivStyledPilotos>
         </DivGeneralPilotos>
       </>

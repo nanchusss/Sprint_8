@@ -1,6 +1,6 @@
 import React from "react"; //En este componente debería aparecer la información de cada na
-import Pilotos from "../../2Components/Pilotos/Pilotos";
-import Peliculas from "../../2Components/Peliculas/Peliculas";
+import Pilotos from "../../components/Pilotos/Pilotos";
+import Peliculas from "../../components/Peliculas/Peliculas";
 import { Contenedor1 } from "./Nave.styles";
 
 // Acá lo que voy a poner es que se recibe por ejemplo el nombre de la nave y que eso me va a ejecutar  una función que va a traer de la api la información que pido según el id.

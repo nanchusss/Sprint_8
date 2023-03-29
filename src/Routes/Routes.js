@@ -1,8 +1,8 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import NavesListado from "../2Components/ListadoNaves/ListadoNaves";
+import NavesListado from "../components/ListadoNaves/ListadoNaves";
 import Naves from "../Pages/Nave/Nave";
-import Error404 from "../2Components/Error404";
+import Error404 from "../components/Error404";
 import Carrusel from "../Pages/Home";
 
 const Rout = ({

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Modal from "../../Modal/Modal";
+import Modal from "../../components/Modal/Modal";
 import {
   DivGeneralPeliculas,
   InfoPeliculas,
@@ -25,12 +25,13 @@ const Peliculas = ({ peliculas }) => {
       const newArray = peliculas.map(async (url) => {
         const pelicula = await fetch(url);
         const peliculaTraida = await pelicula.json();
+        //split y filter para tener el id
         const peliculaId = peliculaTraida.url.split("/").filter(Boolean).pop();
 
         // Construir la URL de la imagen del pelicula
         const imagenUrl = `https://starwars-visualguide.com/assets/img/characters/${peliculaId}.jpg`;
         console.log(imagenUrl);
-        // Devolver un objeto con los datos del pelicula y la URL de la imagen
+        // Imagen de la pelicula
         peliculaTraida.image = imagenUrl;
         console.log(peliculaTraida);
         return {

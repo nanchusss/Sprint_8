@@ -1,19 +1,14 @@
 import "./App.css";
-import NavesListado from "./2Components/ListadoNaves/ListadoNaves";
 import Naves from "./Pages/Nave/Nave";
 import { useState, useEffect } from "react";
-import { NavLink, Routes, Route } from "react-router-dom";
-import { Name, styles, Contenedor, Menu } from "./App.styles";
-import Error404 from "./2Components/Error404";
-import ShipImage from "./2Components/Imagen Nave/Imagen";
+import { Name, styles, Contenedor } from "./App.styles";
+import ShipImage from "./components/Imagen Nave/Imagen";
 import logo2 from "./images/logo.webp";
 import Bienvenida from "./Pages/Bienvenida/Bienvenida";
 import Formulario from "./Pages/Login/Login";
-import Carrusel from "./Pages/Home";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Link from "./2Components/Links";
+import Link from "./components/Links";
 import Rout from "./Routes/Routes";
-//import { Subtitulos } from "./StyledComponents/Generales";
 
 function App() {
   const [mostrarNave, setMostrarNave] = useState([]);
@@ -152,7 +147,7 @@ function App() {
 
       {/*----------------MENÚ PRINCIPAL CON NAVLINK ARRIBA------------------------- */}
 
-      <Link />
+      <Link mostrarNave={mostrarNave} />
 
       <Rout
         loading={loading}
